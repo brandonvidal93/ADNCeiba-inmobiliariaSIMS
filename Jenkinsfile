@@ -1,35 +1,33 @@
 pipeline {
-
     agent {
         label 'Slave_Induccion'
     }
 
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '3'))
-        disableConcurrentBuilds()
+    triggers {
+        pollSCM('@hourly')
     }
 
-    tools {
-        jdk 'JDK8_Centos'
-        gradle 'Gradle4.5_Centos'
+    options {
+            buildDiscarder(logRotator(numToKeepStr: '5'))
+            disableConcurrentBuilds()
     }
 
     stages {
         stage('Checkout') {
             steps {
                 echo '------------>Checkout<------------'
-				checkout([
-					$class: 'GitSCM', 
-					branches: [[name: '*/master']], 
-					doGenerateSubmoduleConfigurations: false, 
-					extensions: [], 
-					gitTool: 'Default', 
-					submoduleCfg: [], 
-					userRemoteConfigs: [[
-						credentialsId: 'GitHub_brandonvidal93', 
-						url:'https://github.com/brandonvidal93/ADNCeiba-inmobiliariaSIMS'
-					]]
-			    ])
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/master']],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [],
+                    gitTool: 'Default',
+                    submoduleCfg: [],
+                    userRemoteConfigs: [[
+                        credentialsId: 'GitHub_brandonvidal93',
+                        url:'https://github.com/brandonvidal93/ADNCeiba-inmobiliariaSIMS'
+                    ]]
+                ])
             }
         }
 
@@ -41,31 +39,25 @@ pipeline {
             }
         }
 
-        stage('Test') {
-           steps{
-              echo "------------>Testing<------------"
-              sh 'npm run test:coverage'
-           }
-        }
-
-        stage('Lint') {
-            steps {
-                sh 'npm run lint'
-            }
-        }
-
-        stage('Static Code Analysis') {
-            steps{
-                echo '------------>Análisis de código estático<------------'
-                withSonarQubeEnv('Sonar') {
-                    sh "${tool name: 'SonarScanner', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
-                }
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'npm run build'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo '------------>Testing<------------'
+                sh 'npm run test:coverage'
+            }
+        }
+
+        stage('Sonar Analysis') {
+            steps {
+                echo '------------>Analisis de código estático<------------'
+                withSonarQubeEnv('Sonar') {
+                    sh "${tool name: 'SonarScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties"
+                }
             }
         }
     }
