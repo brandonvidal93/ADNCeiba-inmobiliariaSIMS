@@ -32,7 +32,7 @@ export const CardItemSmall: React.FC<CardItemSmallProps> = ({
   });
   return (
     <article className={classes.paper} ref={ref}>
-      <Grid container alignItems="center" justify="space-between" spacing={2}>
+      <Grid container alignItems="center" justifyContent="space-between" spacing={2}>
         <Grid xs={8} item className={classes.item}>
           <Grid item>
             <ButtonBase
