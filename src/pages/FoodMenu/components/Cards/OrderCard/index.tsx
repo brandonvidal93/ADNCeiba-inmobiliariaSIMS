@@ -15,7 +15,6 @@ export const OrderCard: React.FC<OrderCardProps> = ({
   onQuantityChange,
   isPreparing,
 }) => {
-  // const classes = useStyles();
   return (
     <CardItemSmall
       coverImg={food.cover}

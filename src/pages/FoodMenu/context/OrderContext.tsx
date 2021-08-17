@@ -57,11 +57,6 @@ export const useStateContainer = (
       .createOrder(order, sessionId)
       .then(() => {
         setIsPreparing(true);
-        /* setTimeout(() => {
-          setIsPreparing(false);
-          setOrder({ promotions: [], foods: [] });
-          setShowConfirmation(true);
-        }, 5000); */
       })
       .catch((err) => console.log(err.response));
   };

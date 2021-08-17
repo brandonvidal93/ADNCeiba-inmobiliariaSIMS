@@ -5,7 +5,6 @@ import { CustomSubOrderPromotionModel } from 'pages/FoodMenu/models/CustomSubOrd
 import { FoodOrderModel } from 'pages/FoodMenu/models/FoodOrderModel';
 import { FoodModel } from 'pages/FoodMenu/models/FoodModel';
 import { v4 as uuidv4 } from 'uuid';
-import { getRealOrderCount } from 'pages/FoodMenu/services/foodOrderService';
 import * as foodOrderService from 'pages/FoodMenu/services/foodOrderService';
 import { FoodTypeEnum } from 'pages/FoodMenu/models/FoodTypeEnum';
 import { PromotionModel } from '../models/PromotionModel';
@@ -57,7 +56,7 @@ export const isCustomOrderReady = (
   return customizable.every(
     (customItem) =>
       customItem.quantity ===
-      getRealOrderCount(subOrder[customItem.foodType] || []),
+      foodOrderService.getRealOrderCount(subOrder[customItem.foodType] || []),
   );
 };
 

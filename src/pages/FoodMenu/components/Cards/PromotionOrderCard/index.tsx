@@ -5,13 +5,13 @@ import { Collapse, IconButton } from '@material-ui/core';
 import { RemoveTwoTone, Visibility, VisibilityOff } from '@material-ui/icons';
 import { PromotionAppliedModel } from 'pages/FoodMenu/models/PromotionAppliedModel';
 
-interface PromotionOrderCard {
+interface PromotionOrderCardInterface {
   promotionApplied: PromotionAppliedModel;
   onRemove: (promo: PromotionAppliedModel) => void;
   isPreparing: boolean;
 }
 
-export const PromotionOrderCard: React.FC<PromotionOrderCard> = ({
+export const PromotionOrderCard: React.FC<PromotionOrderCardInterface> = ({
   promotionApplied,
   onRemove,
   isPreparing,
