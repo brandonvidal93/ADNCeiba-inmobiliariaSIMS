@@ -1,241 +1,199 @@
 {
-  "orders": [
+  "type": [
     {
-      "foods": [],
-      "promotions": [
-        {
-          "uuid": "7a4903cf-36b0-43af-b498-f09c0f4271a9",
-          "promotionId": 3,
-          "closedPrice": "20.40",
-          "name": "Colombian lunch",
-          "discountPercentage": null,
-          "cover": "colombia.png",
-          "totalMemorized": 20.4,
-          "foods": [
-            {
-              "food": {
-                "id": 7,
-                "name": "Bandeja paisa",
-                "type": "MAIN",
-                "price": "9.50",
-                "cover": "bandeja-paisa.jpg",
-                "description": "Tray with beans, pork rinds, ground beef and rice. Accompanied by ripe banana and avocado"
-              },
-              "quantity": 1
-            },
-            {
-              "food": {
-                "id": 12,
-                "name": "Michelada",
-                "type": "DRINK",
-                "price": "7.00",
-                "cover": "michelada.jpg",
-                "description": "Mexican alcoholic drink that is prepared by mixing beer, lemon juice, spicy and salt"
-              },
-              "quantity": 1
-            },
-            {
-              "food": {
-                "id": 13,
-                "name": "Mazamorra",
-                "type": "DESSERT",
-                "price": "7.20",
-                "cover": "mazamorra.jpg",
-                "description": "Dessert prepared with very well cooked peeled corn, and sweetened with raw sugar cane cubes"
-              },
-              "quantity": 1
-            }
-          ]
-        }
-      ],
-      "id": 1
+      "id": 1,
+      "name": "Casa"
+    },
+    {
+      "id": 2,
+      "name": "Apartamento"
     }
   ],
-  "menu": {
-    "foods": [
-      {
-        "id": 1,
-        "name": "Avo on toast",
-        "type": "MAIN",
-        "price": "8.50",
-        "cover": "avo-on-toast.jpg",
-        "description": "Toast with avocado puree, salt, black pepper and citrus juice"
-      },
-      {
-        "id": 2,
-        "name": "Gin and Tonic",
-        "type": "DRINK",
-        "price": "9.05",
-        "cover": "gin-and-tonic.jpg",
-        "description": "Cocktail consisting of gin and tonic water served with ice"
-      },
-      {
-        "id": 3,
-        "name": "Roasted pork belly",
-        "type": "MAIN",
-        "price": "11.00",
-        "cover": "pork-belly-and-kimchi.jpg",
-        "description": "Roasted pork belly with kimchi and soy sauce glaze"
-      },
-      {
-        "id": 4,
-        "name": "Milhojas",
-        "type": "DESSERT",
-        "price": "6.80",
-        "cover": "milhojas.jpg",
-        "description": "Rectangular shaped cake, containing meringue or pastry cream between two layers of puff pastry sprinkled with icing sugar"
-      },
-      {
-        "id": 5,
-        "name": " Vegan Fried Bacon Mac and Cheese",
-        "type": "MAIN",
-        "price": "10.00",
-        "cover": "bacon-mac-and-cheese.jpg",
-        "description": "Mac and cheese with crunchy seitan ‘bacon’ (V)"
-      },
-      {
-        "id": 6,
-        "name": "White Russian",
-        "type": "DRINK",
-        "price": "9.20",
-        "cover": "white-russian.jpg",
-        "description": "Cocktail made with vodka, coffee-flavored liqueur and single cream"
-      },
-      {
-        "id": 7,
-        "name": "Bandeja paisa",
-        "type": "MAIN",
-        "price": "9.50",
-        "cover": "bandeja-paisa.jpg",
-        "description": "Tray with beans, pork rinds, ground beef and rice. Accompanied by ripe banana and avocado"
-      },
-      {
-        "id": 8,
-        "name": "Mojito",
-        "type": "DRINK",
-        "price": "8.00",
-        "cover": "mojito.jpg",
-        "description": "Cocktail made with rum, lemon, mint or eucalyptus and mineral water"
-      },
-      {
-        "id": 9,
-        "name": "Natilla",
-        "type": "DESSERT",
-        "price": "7.50",
-        "cover": "natilla.jpeg",
-        "description": "Dreamy dairy dessert made with milk, egg yolks, sugar and aromas such as vanilla or lemon"
-      },
-      {
-        "id": 10,
-        "name": "Old Fashioned",
-        "type": "DRINK",
-        "price": "9.00",
-        "cover": "old-fashioned.jpg",
-        "description": "Cocktail made with sugar, bitters, whiskey, and garnished with a citrus twist"
-      },
-      {
-        "id": 11,
-        "name": "Pesto pasta",
-        "type": "MAIN",
-        "price": "9.50",
-        "cover": "pesto-pasta.jpg",
-        "description": "Pesto pasta with pine nuts and mozzarella"
-      },
-      {
-        "id": 12,
-        "name": "Michelada",
-        "type": "DRINK",
-        "price": "7.00",
-        "cover": "michelada.jpg",
-        "description": "Mexican alcoholic drink that is prepared by mixing beer, lemon juice, spicy and salt"
-      },
-      {
-        "id": 13,
-        "name": "Mazamorra",
-        "type": "DESSERT",
-        "price": "7.20",
-        "cover": "mazamorra.jpg",
-        "description": "Dessert prepared with very well cooked peeled corn, and sweetened with raw sugar cane cubes"
-      }
-    ],
-    "promotions": [
-      {
-        "id": 1,
-        "name": "Main and Drink",
-        "cover": "special-offer.png",
-        "closedPrice": null,
-        "customizable": [
-          {
-            "foodType": "DRINK",
-            "quantity": 1
-          },
-          {
-            "foodType": "MAIN",
-            "quantity": 1
-          }
-        ],
-        "description": "Hot offer! Get 10% off each main and drink combo",
-        "discountPercentage": 10,
-        "closedValues": []
-      },
-      {
-        "id": 2,
-        "name": "Hungry Date",
-        "cover": "special-offer.png",
-        "closedPrice": "40.00",
-        "customizable": [
-          {
-            "foodType": "DRINK",
-            "quantity": 2
-          },
-          {
-            "foodType": "MAIN",
-            "quantity": 2
-          },
-          {
-            "foodType": "DESSERT",
-            "quantity": 1
-          }
-        ],
-        "description": "Hungry Date Offer! Get 2 mains + 2 drinks + 1 dessert in special price",
-        "discountPercentage": null,
-        "closedValues": []
-      },
-      {
-        "id": 3,
-        "name": "Colombian lunch",
-        "cover": "colombia.png",
-        "closedPrice": "20.40",
-        "customizable": [],
-        "description": "Get a full colombian experience with bandeja paisa, michelada and mazamorra combo",
-        "discountPercentage": null,
-        "closedValues": [
-          {
-            "id": 7,
-            "name": "Bandeja paisa",
-            "type": "MAIN",
-            "price": "9.50",
-            "cover": "bandeja-paisa.jpg",
-            "description": "Tray with beans, pork rinds, ground beef and rice. Accompanied by ripe banana and avocado"
-          },
-          {
-            "id": 12,
-            "name": "Michelada",
-            "type": "DRINK",
-            "price": "7.00",
-            "cover": "michelada.jpg",
-            "description": "Mexican alcoholic drink that is prepared by mixing beer, lemon juice, spicy and salt"
-          },
-          {
-            "id": 13,
-            "name": "Mazamorra",
-            "type": "DESSERT",
-            "price": "7.20",
-            "cover": "mazamorra.jpg",
-            "description": "Dessert prepared with very well cooked peeled corn, and sweetened with raw sugar cane cubes"
-          }
-        ]
-      }
-    ]
-  }
+  "ubication": [
+    {
+      "id": 1,
+      "name": "Comuna 1 - Popular"
+    },
+    {
+      "id": 2,
+      "name": "Comuna 2 - Santa Cruz"
+    },
+    {
+      "id": 3,
+      "name": "Comuna 3 - Manrique"
+    },
+    {
+      "id": 4,
+      "name": "Comuna 4 - Aranjuez"
+    },
+    {
+      "id": 5,
+      "name": "Comuna 5 - Castilla"
+    },
+    {
+      "id": 6,
+      "name": "Comuna 6 - 12 de Octubre"
+    },
+    {
+      "id": 7,
+      "name": "Comuna 7 - Robledo"
+    },
+    {
+      "id": 8,
+      "name": "Comuna 8 - Villa Hermosa"
+    },
+    {
+      "id": 9,
+      "name": "Comuna 9 - Buenos Aires"
+    },
+    {
+      "id": 10,
+      "name": "Comuna 10 - La Candelaria"
+    },
+    {
+      "id": 11,
+      "name": "Comuna 11 - Laureles Estadio"
+    },
+    {
+      "id": 12,
+      "name": "Comuna 12 - La América"
+    },
+    {
+      "id": 13,
+      "name": "Comuna 13 - San Javier"
+    },
+    {
+      "id": 14,
+      "name": "Comuna 14 - El Poblado"
+    },
+    {
+      "id": 15,
+      "name": "Comuna 15 - Guayabal"
+    },
+    {
+      "id": 16,
+      "name": "Comuna 16 - Belén"
+    }
+  ],
+  "antique": [
+    {
+      "id": 1,
+      "name": "1 a 5 años"
+    },
+    {
+      "id": 2,
+      "name": "6 a 10 años"
+    },
+    {
+      "id": 3,
+      "name": "11 a 15 años"
+    },
+    {
+      "id": 4,
+      "name": "16 a 20 años"
+    },
+    {
+      "id": 5,
+      "name": "21 a 25 años"
+    },
+    {
+      "id": 6,
+      "name": "26 a 30 años"
+    },
+    {
+      "id": 7,
+      "name": "31 años o más"
+    }
+  ],
+  "level": [
+    {
+      "id": 1,
+      "name": "Estrato 1"
+    },
+    {
+      "id": 2,
+      "name": "Estrato 2"
+    },
+    {
+      "id": 3,
+      "name": "Estrato 3"
+    },
+    {
+      "id": 4,
+      "name": "Estrato 4"
+    },
+    {
+      "id": 5,
+      "name": "Estrato 5"
+    },
+    {
+      "id": 6,
+      "name": "Estrato 6"
+    }   
+  ],
+  "buildings": [
+    {
+      "id": 1,
+      "typeId": 2,
+      "totalArea": 100,
+      "builtArea": 50,
+      "antiqueId": 5,
+      "levelId": 4,
+      "ubicationId": 4,
+      "address": "Carrera 51B #96-96",
+      "rooms": 2,
+      "office": 1,
+      "bathrooms": 1,
+      "garages": 1,
+      "floors": 1,
+      "discountUbication": 10,
+      "price": 90000000,
+      "priceDiscount": 81000000,
+      "priceAdmon": 450000,
+      "pricePolicy": 0,
+      "imgBuilding": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+    },
+    {
+      "id": 2,
+      "typeId": 1,
+      "totalArea": 200,
+      "builtArea": 80,
+      "antiqueId": 10,
+      "levelId": 3,
+      "ubicationId": 4,
+      "address": "Carrera 51B #96-80",
+      "rooms": 3,
+      "office": 1,
+      "bathrooms": 2,
+      "garages": 0,
+      "floors": 1,
+      "discountUbication": 10,
+      "price": 120000000,
+      "priceDiscount": 108000000,
+      "priceAdmon": 0,
+      "pricePolicy": 5400000,
+      "imgBuilding": "https://images.unsplash.com/photo-1460317442991-0ec209397118?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+    },
+    {
+      "id": 3,
+      "typeId": 1,
+      "totalArea": 200,
+      "builtArea": 80,
+      "antiqueId": 10,
+      "levelId": 3,
+      "ubicationId": 4,
+      "address": "Carrera 51A #96-14",
+      "rooms": 3,
+      "office": 1,
+      "bathrooms": 2,
+      "garages": 0,
+      "floors": 1,
+      "discountUbication": 10,
+      "price": 120000000,
+      "priceDiscount": 108000000,
+      "priceAdmon": 0,
+      "pricePolicy": 5400000,
+      "imgBuilding": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=673&q=80"
+    }
+  ]
 }
