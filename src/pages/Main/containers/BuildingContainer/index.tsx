@@ -1,5 +1,11 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import {
+  Button,
+  ButtonBase,
+  Grid,
+  Typography,
+  Divider,
+} from '@material-ui/core';
 
 // Components
 import BuildingCard from 'pages/Main/components/Cards/BuildingCard';
@@ -10,7 +16,9 @@ const BuildingContainer: React.FC = () => {
       <Typography variant="h3" align="center">
         Propiedades
       </Typography>
-      <BuildingCard />
+      <Grid container spacing={3}>
+        <BuildingCard />
+      </Grid>
     </>
   );
 };

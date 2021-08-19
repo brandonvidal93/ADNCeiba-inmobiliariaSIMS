@@ -1,4 +1,5 @@
 import React from 'react';
+import currencyFormatter from 'currency-formatter';
 import {
   Button,
   ButtonBase,
@@ -18,96 +19,46 @@ import DriveEtaIcon from '@material-ui/icons/DriveEta';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 
+// Components
+import { BuildImage } from 'pages/Main/components/BuildingImage';
+import { useStyles } from './styles';
+
 const CardItem: React.FC = () => {
+  const classes = useStyles();
   return (
-    <article>
-      <Grid container spacing={2} direction="column">
-        <Grid item xs container direction="column" spacing={2}>
-          <Grid item xs>
-            <Typography variant="h4">Nombre de la propiedad</Typography>
-            <Typography variant="body1">Descripción de la propiedad</Typography>
-            <Typography variant="body1">
-              Tipo de propiedad: Apartamento
-            </Typography>
+    <Grid item xs={4}>
+      <Grid container direction="column" className={classes.paper}>
+        <Grid item className={classes.imgContainer}>
+          <BuildImage
+            cover="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+            className={classes.img}
+          />
+        </Grid>
+        <Grid item className={classes.infoContainer}>
+          <Typography variant="h6">Nombre de la propiedad</Typography>
+          <Typography variant="body1">Sector</Typography>
+        </Grid>
+        <Grid container justify="space-around">
+          <Grid item xs={3} className={classes.itemDetail}>
+            <SquareFootIcon color="primary" />
+            <Typography variant="body1">0</Typography>
+          </Grid>
+          <Grid item xs={3} className={classes.itemDetail}>
+            <HotelIcon color="primary" />
+            <Typography variant="body1">0</Typography>
+          </Grid>
+          <Grid item xs={3} className={classes.itemDetail}>
+            <BathtubIcon color="primary" />
+            <Typography variant="body1">0</Typography>
           </Grid>
         </Grid>
-        <Divider />
-        <Grid item xs>
-          <Grid container spacing={2} justify="space-around">
-            <Grid item xs={3} container direction="column" alignItems="center">
-              <SquareFootIcon />
-              <Typography variant="body2">Área total</Typography>
-              <Typography variant="h6">0</Typography>
-            </Grid>
-            <Grid item xs={3} container direction="column" alignItems="center">
-              <HomeWorkIcon />
-              <Typography variant="body2">Área construida</Typography>
-              <Typography variant="h6">0</Typography>
-            </Grid>
-            <Grid item xs={3} container direction="column" alignItems="center">
-              <DateRangeIcon />
-              <Typography variant="body2">Antigüedad</Typography>
-              <Typography variant="h6">0</Typography>
-            </Grid>
-            <Grid item xs={3} container direction="column" alignItems="center">
-              <BarChartIcon />
-              <Typography variant="body2">Estrato</Typography>
-              <Typography variant="h6">3</Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Divider />
-        <Grid item xs container direction="column" spacing={2}>
-          <Grid item xs>
-            <Typography variant="h5">Detalles</Typography>
-          </Grid>
-        </Grid>
-        <Grid item xs>
-          <Grid container spacing={2} justify="flex-start">
-            <Grid item xs={3} container direction="column" alignItems="center">
-              <HotelIcon />
-              <Typography variant="body2">Habitaciones</Typography>
-              <Typography variant="h6">0</Typography>
-            </Grid>
-            <Grid item xs={3} container direction="column" alignItems="center">
-              <BathtubIcon />
-              <Typography variant="body2">Baños</Typography>
-              <Typography variant="h6">0</Typography>
-            </Grid>
-            <Grid item xs={3} container direction="column" alignItems="center">
-              <DriveEtaIcon />
-              <Typography variant="body2">Parqueaderos</Typography>
-              <Typography variant="h6">0</Typography>
-            </Grid>
-            <Grid item xs={3} container direction="column" alignItems="center">
-              <AirlineSeatReclineNormalIcon />
-              <Typography variant="body2">Estudio</Typography>
-              <Typography variant="h6">0</Typography>
-            </Grid>
-            <Grid item xs={3} container direction="column" alignItems="center">
-              <ApartmentIcon />
-              <Typography variant="body2">Niveles</Typography>
-              <Typography variant="h6">0</Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-        <Divider />
-        <Grid item xs>
-          <Grid container spacing={2} justify="center">
-            <Grid item xs={3} container direction="column" alignItems="center">
-              <BusinessCenterIcon fontSize="large" />
-              <Typography variant="h5">Administración</Typography>
-              <Typography variant="h6">$ 0</Typography>
-            </Grid>
-            <Grid item xs={3} container direction="column" alignItems="center">
-              <AttachMoneyIcon fontSize="large" />
-              <Typography variant="h5">Valor</Typography>
-              <Typography variant="h6">$ 0</Typography>
-            </Grid>
-          </Grid>
+        <Grid item className={classes.infoContainer}>
+          <Typography variant="h6" align="center" color="primary">
+            {currencyFormatter.format(90000000, { code: 'USD' })}
+          </Typography>
         </Grid>
       </Grid>
-    </article>
+    </Grid>
   );
 };
 
