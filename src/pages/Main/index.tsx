@@ -1,16 +1,15 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
+import { BuildingProvider } from './context/BuildingContext';
 // Components
-import MenuContainer from './containers/MenuContainer';
 import BuildingContainer from './containers/BuildingContainer';
 
 const Main: React.FC = () => {
   return (
     <Container maxWidth="md" disableGutters>
-      <MenuContainer />
-      <div>
+      <BuildingProvider>
         <BuildingContainer />
-      </div>
+      </BuildingProvider>
     </Container>
   );
 };
