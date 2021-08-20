@@ -15,6 +15,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       margin: 'auto',
       display: 'block',
       width: '100%',
+      height: '25vh',
       objectFit: 'cover',
     },
     infoContainer: {

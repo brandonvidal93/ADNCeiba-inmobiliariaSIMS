@@ -1,12 +1,29 @@
 import React from 'react';
 
+// Models
+import { ItemModel } from 'pages/Main/models/ItemModel';
+
 // Components
 import CardItem from '../CardItem';
 
-const BuildingCard: React.FC = () => {
+export interface BuildingCardProps {
+  item: ItemModel;
+}
+
+const BuildingCard: React.FC<BuildingCardProps> = ({ item }) => {
   return (
     <>
-      <CardItem />
+      <CardItem
+        id={item.id}
+        typeId={item.typeId}
+        totalArea={item.totalArea}
+        ubicationId={item.ubicationId}
+        rooms={item.rooms}
+        bathrooms={item.bathrooms}
+        price={item.price}
+        priceDiscount={item.priceDiscount}
+        imgCover={item.imgCover}
+      />
     </>
   );
 };
