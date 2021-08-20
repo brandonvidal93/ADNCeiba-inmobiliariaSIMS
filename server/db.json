@@ -1,145 +1,15 @@
 {
-  "type": [
-    {
-      "id": 1,
-      "name": "Casa"
-    },
-    {
-      "id": 2,
-      "name": "Apartamento"
-    }
-  ],
-  "ubication": [
-    {
-      "id": 1,
-      "name": "Comuna 1 - Popular"
-    },
-    {
-      "id": 2,
-      "name": "Comuna 2 - Santa Cruz"
-    },
-    {
-      "id": 3,
-      "name": "Comuna 3 - Manrique"
-    },
-    {
-      "id": 4,
-      "name": "Comuna 4 - Aranjuez"
-    },
-    {
-      "id": 5,
-      "name": "Comuna 5 - Castilla"
-    },
-    {
-      "id": 6,
-      "name": "Comuna 6 - 12 de Octubre"
-    },
-    {
-      "id": 7,
-      "name": "Comuna 7 - Robledo"
-    },
-    {
-      "id": 8,
-      "name": "Comuna 8 - Villa Hermosa"
-    },
-    {
-      "id": 9,
-      "name": "Comuna 9 - Buenos Aires"
-    },
-    {
-      "id": 10,
-      "name": "Comuna 10 - La Candelaria"
-    },
-    {
-      "id": 11,
-      "name": "Comuna 11 - Laureles Estadio"
-    },
-    {
-      "id": 12,
-      "name": "Comuna 12 - La América"
-    },
-    {
-      "id": 13,
-      "name": "Comuna 13 - San Javier"
-    },
-    {
-      "id": 14,
-      "name": "Comuna 14 - El Poblado"
-    },
-    {
-      "id": 15,
-      "name": "Comuna 15 - Guayabal"
-    },
-    {
-      "id": 16,
-      "name": "Comuna 16 - Belén"
-    }
-  ],
-  "antique": [
-    {
-      "id": 1,
-      "name": "1 a 5 años"
-    },
-    {
-      "id": 2,
-      "name": "6 a 10 años"
-    },
-    {
-      "id": 3,
-      "name": "11 a 15 años"
-    },
-    {
-      "id": 4,
-      "name": "16 a 20 años"
-    },
-    {
-      "id": 5,
-      "name": "21 a 25 años"
-    },
-    {
-      "id": 6,
-      "name": "26 a 30 años"
-    },
-    {
-      "id": 7,
-      "name": "31 años o más"
-    }
-  ],
-  "level": [
-    {
-      "id": 1,
-      "name": "Estrato 1"
-    },
-    {
-      "id": 2,
-      "name": "Estrato 2"
-    },
-    {
-      "id": 3,
-      "name": "Estrato 3"
-    },
-    {
-      "id": 4,
-      "name": "Estrato 4"
-    },
-    {
-      "id": 5,
-      "name": "Estrato 5"
-    },
-    {
-      "id": 6,
-      "name": "Estrato 6"
-    }   
-  ],
   "buildings": {
     "items": [
       {
         "id": 1,
+        "typeName": "Casa",
         "typeId": 2,
         "totalArea": 100,
         "builtArea": 50,
         "antiqueId": 5,
         "levelId": 4,
+        "ubicationName": "Aranjuez",
         "ubicationId": 4,
         "address": "Carrera 51B #96-96",
         "rooms": 2,
@@ -157,11 +27,13 @@
       },
       {
         "id": 2,
+        "typeName": "Apartamento",
         "typeId": 1,
         "totalArea": 200,
         "builtArea": 80,
         "antiqueId": 10,
         "levelId": 3,
+        "ubicationName": "Aranjuez",
         "ubicationId": 4,
         "address": "Carrera 51B #96-80",
         "rooms": 3,
@@ -179,11 +51,13 @@
       },
       {
         "id": 3,
+        "typeName": "Apartamento",
         "typeId": 1,
         "totalArea": 200,
         "builtArea": 80,
         "antiqueId": 10,
         "levelId": 3,
+        "ubicationName": "Aranjuez",
         "ubicationId": 4,
         "address": "Carrera 51A #96-14",
         "rooms": 3,
@@ -197,6 +71,30 @@
         "priceAdmon": 0,
         "pricePolicy": 5400000,
         "imgCover": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=673&q=80",
+        "description": ""
+      },
+      {
+        "id": 4,
+        "typeName": "Apartamento",
+        "typeId": 1,
+        "totalArea": 150,
+        "builtArea": 70,
+        "antiqueId": 2,
+        "levelId": 3,
+        "ubicationName": "Aranjuez",
+        "ubicationId": 4,
+        "address": "Carrera 51A #96-14",
+        "rooms": 2,
+        "office": 1,
+        "bathrooms": 1,
+        "garages": 1,
+        "floors": 2,
+        "discountUbication": 10,
+        "price": 220000000,
+        "priceDiscount": 108000000,
+        "priceAdmon": 0,
+        "pricePolicy": 5400000,
+        "imgCover": "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=753&q=80",
         "description": ""
       }
     ]

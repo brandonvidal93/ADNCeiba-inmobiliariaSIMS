@@ -1,10 +1,12 @@
 export interface ItemModel {
   id: number;
+  typeName: string;
   typeId: number;
   totalArea: number;
   builtArea: number;
   antiqueId: number;
   levelId: number;
+  ubicationName: string;
   ubicationId: number;
   address: string;
   rooms: number;

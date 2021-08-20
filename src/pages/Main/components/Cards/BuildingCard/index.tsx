@@ -15,8 +15,10 @@ const BuildingCard: React.FC<BuildingCardProps> = ({ item }) => {
     <>
       <CardItem
         id={item.id}
+        typeName={item.typeName}
         typeId={item.typeId}
         totalArea={item.totalArea}
+        ubicationName={item.ubicationName}
         ubicationId={item.ubicationId}
         rooms={item.rooms}
         bathrooms={item.bathrooms}

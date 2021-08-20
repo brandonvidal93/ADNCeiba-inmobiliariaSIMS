@@ -11,8 +11,10 @@ import { useStyles } from './styles';
 
 export interface CardItemProps {
   id: number;
+  typeName: string;
   typeId: number;
   totalArea: number;
+  ubicationName: string;
   ubicationId: number;
   rooms: number;
   bathrooms: number;
@@ -23,8 +25,10 @@ export interface CardItemProps {
 
 const CardItem: React.FC<CardItemProps> = ({
   id,
+  typeName,
   typeId,
   totalArea,
+  ubicationName,
   ubicationId,
   rooms,
   bathrooms,
@@ -40,8 +44,10 @@ const CardItem: React.FC<CardItemProps> = ({
           <BuildImage cover={imgCover} className={classes.img} />
         </Grid>
         <Grid item className={classes.infoContainer}>
-          <Typography variant="h6">Nombre de la propiedad</Typography>
-          <Typography variant="body1">Sector: {ubicationId}</Typography>
+          <Typography variant="h6">
+            {typeName} - {id}
+          </Typography>
+          <Typography variant="body1">Sector: {ubicationName}</Typography>
         </Grid>
         <Grid container justify="space-around">
           <Grid item xs={3} className={classes.itemDetail}>
