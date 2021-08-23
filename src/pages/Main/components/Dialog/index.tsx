@@ -25,7 +25,6 @@ const DialogComponent: React.FC<DialogContextProps> = ({
   isOpen,
   toggleDialog,
 }) => {
-  console.log(`IsOpen from Dialog ${isOpen}`);
   const classes = useStyles();
 
   const handleClose = () => {
