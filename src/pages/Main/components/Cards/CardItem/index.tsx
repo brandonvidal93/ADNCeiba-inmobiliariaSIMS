@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import currencyFormatter from 'currency-formatter';
+
+// Context
+import { DialogContext } from 'pages/Main/context/DialogContext';
+
+// Material
 import { Grid, Typography } from '@material-ui/core';
 import SquareFootIcon from '@material-ui/icons/SquareFoot';
 import HotelIcon from '@material-ui/icons/Hotel';
@@ -36,11 +41,19 @@ const CardItem: React.FC<CardItemProps> = ({
   priceDiscount,
   imgCover,
 }) => {
+  const {
+    mutations: { toggleDialog },
+  } = useContext(DialogContext);
+
+  const handleClickOpen = () => {
+    toggleDialog(true);
+  };
+
   const classes = useStyles();
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Grid container direction="column" className={classes.paper}>
-        <Grid item className={classes.imgContainer}>
+        <Grid item className={classes.imgContainer} onClick={handleClickOpen}>
           <BuildImage cover={imgCover} className={classes.img} />
         </Grid>
         <Grid item className={classes.infoContainer}>

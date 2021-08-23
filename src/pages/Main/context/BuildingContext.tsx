@@ -1,7 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import * as buildingService from '../services/buildingService';
 import { BuildingModel } from '../models/BuildingModel';
-import { ItemModel } from '../models/ItemModel';
 
 export interface BuildingState {
   allBuildings?: BuildingModel;

@@ -1,24 +1,33 @@
-import React, { useState } from 'react';
-import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
-import HomeIcon from '@material-ui/icons/Home';
-import AddLocationIcon from '@material-ui/icons/AddLocation';
+import React, { useContext } from 'react';
+
+// Material
+import Fab from '@material-ui/core/Fab';
+
+// Context
+import { DialogContext } from 'pages/Main/context/DialogContext';
+
+// Icons
+import AddIcon from '@material-ui/icons/Add';
+
+// Styles
+import { useStyles } from './styles';
 
 const MenuContainer: React.FC = () => {
-  const [value, setValue] = useState(0);
+  const classes = useStyles();
+  const {
+    mutations: { toggleDialog },
+  } = useContext(DialogContext);
+
+  const handleClickOpen = () => {
+    toggleDialog(true);
+  };
 
   return (
-    <BottomNavigation
-      value={value}
-      onChange={(event, newValue) => setValue(newValue)}
-      showLabels
-    >
-      <BottomNavigationAction label="Propiedades" icon={<HomeIcon />} />
-
-      <BottomNavigationAction
-        label="Agregar propiedad"
-        icon={<AddLocationIcon />}
-      />
-    </BottomNavigation>
+    <div>
+      <Fab color="primary" aria-label="add" className={classes.fab}>
+        <AddIcon onClick={handleClickOpen} />
+      </Fab>
+    </div>
   );
 };
 
