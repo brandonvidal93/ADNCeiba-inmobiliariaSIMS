@@ -8,7 +8,6 @@ import { BuildingProvider } from './context/BuildingContext';
 // Components
 import BuildingContainer from './containers/BuildingContainer';
 import MenuContainer from './containers/MenuContainer';
-import DialogContainer from './containers/DialogContainer';
 
 const Main: React.FC = () => {
   return (
@@ -17,7 +16,6 @@ const Main: React.FC = () => {
         <BuildingProvider>
           <BuildingContainer />
           <MenuContainer />
-          <DialogContainer />
         </BuildingProvider>
       </DialogProvider>
     </Container>

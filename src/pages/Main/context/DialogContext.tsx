@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useState } from 'react';
 
 export const useStateContainer = (initialState: { isOpen?: boolean }) => {
   const [isOpen, setIsOpen] = useState(initialState.isOpen || false);

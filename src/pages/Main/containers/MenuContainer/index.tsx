@@ -6,6 +6,10 @@ import Fab from '@material-ui/core/Fab';
 // Context
 import { DialogContext } from 'pages/Main/context/DialogContext';
 
+// Components
+import DialogComponent from 'pages/Main/components/Dialog';
+import AddForm from 'pages/Main/components/AddForm';
+
 // Icons
 import AddIcon from '@material-ui/icons/Add';
 
@@ -15,6 +19,7 @@ import { useStyles } from './styles';
 const MenuContainer: React.FC = () => {
   const classes = useStyles();
   const {
+    data: { isOpen },
     mutations: { toggleDialog },
   } = useContext(DialogContext);
 
@@ -23,11 +28,18 @@ const MenuContainer: React.FC = () => {
   };
 
   return (
-    <div>
+    <>
       <Fab color="primary" aria-label="add" className={classes.fab}>
         <AddIcon onClick={handleClickOpen} />
       </Fab>
-    </div>
+      <DialogComponent
+        title="Registrar Propiedad"
+        isOpen={isOpen}
+        toggleDialog={toggleDialog}
+      >
+        <AddForm />
+      </DialogComponent>
+    </>
   );
 };
 
