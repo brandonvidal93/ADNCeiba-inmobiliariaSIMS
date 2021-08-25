@@ -4,6 +4,7 @@ export interface ItemModel {
   typeId: number;
   totalArea: number;
   builtArea: number;
+  antiqueName: string;
   antiqueId: number;
   levelId: number;
   ubicationName: string;

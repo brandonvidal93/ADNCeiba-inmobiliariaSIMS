@@ -96,6 +96,30 @@
         "pricePolicy": 5400000,
         "imgCover": "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=753&q=80",
         "description": ""
+      },
+      {
+        "id": 5,
+        "typeName": "Apartamento",
+        "typeId": 1,
+        "totalArea": 150,
+        "builtArea": 70,
+        "antiqueId": 2,
+        "levelId": 3,
+        "ubicationName": "Aranjuez",
+        "ubicationId": 4,
+        "address": "Carrera 51A #96-14",
+        "rooms": 2,
+        "office": 1,
+        "bathrooms": 1,
+        "garages": 1,
+        "floors": 2,
+        "discountUbication": 10,
+        "price": 220000000,
+        "priceDiscount": 108000000,
+        "priceAdmon": 0,
+        "pricePolicy": 5400000,
+        "imgCover": "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=753&q=80",
+        "description": ""
       }
     ]
   }

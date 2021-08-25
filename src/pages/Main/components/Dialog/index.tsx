@@ -47,9 +47,6 @@ const DialogComponent: React.FC<DialogContextProps> = ({
             <Typography variant="h6" className={classes.title}>
               {title}
             </Typography>
-            <Button type="submit" color="inherit" onClick={handleClose}>
-              Guardar
-            </Button>
           </Toolbar>
         </AppBar>
         {children}
