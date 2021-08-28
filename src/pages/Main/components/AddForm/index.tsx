@@ -24,7 +24,12 @@ const AddForm: React.FC = () => {
   };
 
   return (
-    <form noValidate autoComplete="on" className={classes.form} onSubmit={handleOnSubmit}>
+    <form
+      noValidate
+      autoComplete="on"
+      className={classes.form}
+      onSubmit={handleOnSubmit}
+    >
       <Container maxWidth="md" disableGutters>
         <Grid container spacing={2} justify="space-between">
           <Grid item xs={5}>

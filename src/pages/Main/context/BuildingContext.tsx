@@ -1,9 +1,9 @@
 import React, { createContext, useEffect, useState } from 'react';
 import * as buildingService from '../services/buildingService';
-import { BuildingModel } from '../models/BuildingModel';
+import { ItemModel } from '../models/ItemModel';
 
 export interface BuildingState {
-  allBuildings?: BuildingModel;
+  allBuildings?: ItemModel;
 }
 
 export const useStateContainer = (initialState: BuildingState = {}) => {
@@ -24,7 +24,7 @@ export const useStateContainer = (initialState: BuildingState = {}) => {
 
 export const BuildingContext = createContext<
   ReturnType<typeof useStateContainer>
->({} as never);
+>([] as never);
 
 export interface BuildingProvidedProps {
   initialState?: BuildingState;

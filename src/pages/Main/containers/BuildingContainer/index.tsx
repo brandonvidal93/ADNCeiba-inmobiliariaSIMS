@@ -26,7 +26,7 @@ const BuildingContainer: React.FC = () => {
       </Typography>
       <Grid container spacing={3} className={classes.itemContainer}>
         {allBuildings &&
-          allBuildings.items.map((building: ItemModel) => (
+          allBuildings.map((building: ItemModel) => (
             <BuildingCard key={building.id} item={building} />
           ))}
       </Grid>
