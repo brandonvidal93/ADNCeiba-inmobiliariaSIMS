@@ -3,12 +3,12 @@ import * as buildingService from '../services/buildingService';
 import { ItemModel } from '../models/ItemModel';
 
 export interface BuildingState {
-  allBuildings?: ItemModel;
+  allBuildings?: ItemModel[];
 }
 
 export const useStateContainer = (initialState: BuildingState = {}) => {
   const [allBuildings, setAllBuildings] = useState(
-    initialState.allBuildings || { items: [] },
+    initialState.allBuildings || [],
   );
 
   useEffect(() => {
@@ -16,6 +16,8 @@ export const useStateContainer = (initialState: BuildingState = {}) => {
       .listBuilding()
       .then((buildings) => setAllBuildings(buildings));
   }, []);
+
+  console.log(allBuildings);
 
   return {
     data: { allBuildings },
