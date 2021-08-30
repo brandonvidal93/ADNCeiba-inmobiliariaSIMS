@@ -8,3 +8,5 @@ exports[`Biulding Image Test should render building image 1`] = `
   />
 </div>
 `;
+
+exports[`Biulding Image Test should render building image with cover is null 1`] = `<div />`;
