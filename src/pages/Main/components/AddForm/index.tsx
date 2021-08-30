@@ -92,7 +92,6 @@ const AddForm: React.FC = () => {
                   </Select>
                 )}
                 control={control}
-                onChange={() => console.log('hellow')}
                 name="type"
                 rules={{ required: true }}
                 defaultValue=""
@@ -179,7 +178,6 @@ const AddForm: React.FC = () => {
                   </Select>
                 )}
                 control={control}
-                onChange={() => console.log('hellow')}
                 name="antique"
                 rules={{ required: true }}
                 defaultValue=""
@@ -248,7 +246,6 @@ const AddForm: React.FC = () => {
                   </Select>
                 )}
                 control={control}
-                onChange={() => console.log('hellow')}
                 name="ubication"
                 rules={{ required: true }}
                 defaultValue=""
@@ -445,14 +442,8 @@ const AddForm: React.FC = () => {
               {errors.priceAdmon ? 'Solo números' : ''}
             </FormHelperText>
           </Grid>
-        </Grid>
-        <Grid
-          container
-          spacing={2}
-          justifyContent="space-between"
-          className={classes.gridContainer}
-        >
-          <Grid item xs={8}>
+
+          <Grid item xs={6}>
             <Controller
               as={
                 <TextField

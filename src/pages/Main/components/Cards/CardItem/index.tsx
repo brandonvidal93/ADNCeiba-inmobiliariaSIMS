@@ -1,11 +1,8 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import currencyFormatter from 'currency-formatter';
 
 // Models
 import { ItemModel } from 'pages/Main/models/ItemModel';
-
-// Context
-import { DialogContext } from 'pages/Main/context/DialogContext';
 
 // Material
 import { Grid, Typography } from '@material-ui/core';
@@ -36,14 +33,6 @@ const CardItem: React.FC<ItemModel> = ({
   imgCover,
   descripcion,
 }) => {
-  const {
-    mutations: { toggleDialog },
-  } = useContext(DialogContext);
-
-  const handleClickOpen = () => {
-    toggleDialog(true);
-  };
-
   const [ubicationItem, setUbicationItem] = useState(['']);
 
   useEffect(() => {
@@ -57,12 +46,12 @@ const CardItem: React.FC<ItemModel> = ({
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Grid container direction="column" className={classes.paper}>
-        <Grid item className={classes.imgContainer} onClick={handleClickOpen}>
+        <Grid item className={classes.imgContainer}>
           <BuildImage cover={imgCover} className={classes.img} />
         </Grid>
         <Grid item className={classes.infoContainer}>
           <Typography variant="h6">
-            {type === 1 ? 'Apartamento' : 'Casa'} - {id}
+            {Number(type) === 1 ? 'Apartamento' : 'Casa'} - {id}
           </Typography>
           <Typography variant="body1">Sector {ubicationItem[2]}</Typography>
         </Grid>

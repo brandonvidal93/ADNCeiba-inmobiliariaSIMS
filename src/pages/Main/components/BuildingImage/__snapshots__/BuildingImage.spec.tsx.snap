@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Biulding Image Test should render building image 1`] = `
+<div>
+  <img
+    alt="Build cover"
+    src="build.jpg"
+  />
+</div>
+`;
