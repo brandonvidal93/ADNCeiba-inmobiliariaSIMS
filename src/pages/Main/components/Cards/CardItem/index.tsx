@@ -35,6 +35,7 @@ const CardItem: React.FC<ItemModel> = ({
 }) => {
   const [ubicationItem, setUbicationItem] = useState(['']);
   const apartmentId = 1;
+  const typeId = Number(type);
 
   useEffect(() => {
     setUbicationItem(ubication.split('_'));
@@ -52,7 +53,7 @@ const CardItem: React.FC<ItemModel> = ({
         </Grid>
         <Grid item className={classes.infoContainer}>
           <Typography variant="h6">
-            {Number(type) === apartmentId ? 'Apartamento' : 'Casa'} - {id}
+            {typeId === apartmentId ? 'Apartamento' : 'Casa'} - {id}
           </Typography>
           <Typography variant="body1">Sector {ubicationItem[2]}</Typography>
         </Grid>
