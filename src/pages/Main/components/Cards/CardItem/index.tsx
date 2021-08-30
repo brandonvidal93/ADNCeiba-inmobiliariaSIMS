@@ -32,9 +32,7 @@ const CardItem: React.FC<ItemModel> = ({
   garages,
   floors,
   price,
-  priceDiscount,
   priceAdmon,
-  pricePolicy,
   imgCover,
   descripcion,
 }) => {
@@ -51,6 +49,9 @@ const CardItem: React.FC<ItemModel> = ({
   useEffect(() => {
     setUbicationItem(ubication.split('_'));
   }, [ubication]);
+
+  const priceDiscount: number =
+    Number(price) - Number(price) * Number(ubicationItem[0]);
 
   const classes = useStyles();
   return (
@@ -84,7 +85,10 @@ const CardItem: React.FC<ItemModel> = ({
             Antes: <del>{currencyFormatter.format(price, { code: 'USD' })}</del>
           </Typography>
           <Typography variant="h6" align="center" color="primary">
-            Ahora: {currencyFormatter.format(priceDiscount, { code: 'USD' })}
+            Ahora:
+            {currencyFormatter.format(priceDiscount, {
+              code: 'USD',
+            })}
           </Typography>
         </Grid>
       </Grid>

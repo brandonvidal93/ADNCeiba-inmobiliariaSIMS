@@ -41,10 +41,6 @@ const AddForm: React.FC = () => {
 
   const classes = useStyles();
   const [isHouse, setIsHouse] = useState(true);
-  const [isAntique, setIsAntique] = useState(true);
-  const [discount, setDiscount] = useState(0);
-  const [priceDiscount, setPriceDiscount] = useState(0);
-  const [pricePolicy, setPricePolicy] = useState(0);
 
   const { handleSubmit, formState, control, errors } = useForm({
     mode: 'onChange',
@@ -57,27 +53,6 @@ const AddForm: React.FC = () => {
     } else {
       setIsHouse(true);
     }
-  };
-
-  const handleAntique = (event: React.ChangeEvent<{ value: unknown }>) => {
-    const antiqueValue: string[] = (event.target.value as string).split('_');
-    if (Number(antiqueValue[0]) > 1) {
-      setIsAntique(false);
-      setPricePolicy(priceDiscount * 0.05);
-    } else {
-      setIsAntique(true);
-      setPricePolicy(0);
-    }
-  };
-
-  const handleUbication = (event: React.ChangeEvent<{ value: unknown }>) => {
-    const ubicationValue: string[] = (event.target.value as string).split('_');
-    setDiscount(Number(ubicationValue[0]));
-  };
-
-  const handlePrice = (event: React.ChangeEvent<{ value: unknown }>) => {
-    const priceValue = Number(event.target.value as string);
-    setPriceDiscount(priceValue - priceValue * discount);
   };
 
   const onSubmit = (value: ItemModel) => {
@@ -190,7 +165,6 @@ const AddForm: React.FC = () => {
                     value={value}
                     onChange={(e) => {
                       onChange(e);
-                      handleAntique(e);
                     }}
                     name={name}
                   >
@@ -260,7 +234,6 @@ const AddForm: React.FC = () => {
                     value={value}
                     onChange={(e) => {
                       onChange(e);
-                      handleUbication(e);
                     }}
                     name={name}
                   >
@@ -436,7 +409,6 @@ const AddForm: React.FC = () => {
                   required
                   className={classes.textField}
                   onChange={(e) => {
-                    handlePrice(e);
                     onChange(e);
                   }}
                   value={value}
@@ -452,25 +424,6 @@ const AddForm: React.FC = () => {
             <FormHelperText error={errors.price}>
               {errors.price ? 'Solo números' : ''}
             </FormHelperText>
-          </Grid>
-          <Grid item xs={3}>
-            <Controller
-              render={() => (
-                <TextField
-                  label="Valor de venta ($)"
-                  className={classes.textField}
-                  inputProps={{
-                    readOnly: true,
-                  }}
-                  value={priceDiscount}
-                />
-              )}
-              control={control}
-              name="priceDiscount"
-              id="priceDiscount"
-              rules={{ required: false }}
-              defaultValue=""
-            />
           </Grid>
           <Grid item xs={3}>
             <Controller
@@ -499,26 +452,6 @@ const AddForm: React.FC = () => {
           justifyContent="space-between"
           className={classes.gridContainer}
         >
-          <Grid item xs={4}>
-            <Controller
-              render={() => (
-                <TextField
-                  label="Seguro de vivienda (valor anual $)"
-                  className={classes.textField}
-                  inputProps={{
-                    readOnly: true,
-                  }}
-                  disabled={isAntique}
-                  value={pricePolicy}
-                />
-              )}
-              control={control}
-              name="pricePolicy"
-              id="pricePolicy"
-              rules={{ required: false, pattern: numberRegex }}
-              defaultValue=""
-            />
-          </Grid>
           <Grid item xs={8}>
             <Controller
               as={

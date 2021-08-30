@@ -13,9 +13,7 @@ export interface ItemModel {
   garages?: number;
   floors: number;
   price: number;
-  priceDiscount: number;
   priceAdmon?: number;
-  pricePolicy?: number;
   imgCover: string;
   descripcion?: string;
 }

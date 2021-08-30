@@ -28,9 +28,7 @@ const BuildingCard: React.FC<BuildingCardProps> = ({ item }) => {
         garages={item.garages}
         floors={item.floors}
         price={item.price}
-        priceDiscount={item.priceDiscount}
         priceAdmon={item.priceAdmon}
-        pricePolicy={item.pricePolicy}
         imgCover={item.imgCover}
         descripcion={item.descripcion}
       />
