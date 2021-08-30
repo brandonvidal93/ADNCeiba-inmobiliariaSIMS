@@ -9,7 +9,7 @@ import { BuildingProvider } from './context/BuildingContext';
 import BuildingContainer from './containers/BuildingContainer';
 import MenuContainer from './containers/MenuContainer';
 
-const Main: React.FC = () => {
+const main: React.FC = () => {
   return (
     <Container maxWidth="md" disableGutters>
       <DialogProvider>
@@ -22,4 +22,4 @@ const Main: React.FC = () => {
   );
 };
 
-export default Main;
+export default main;
