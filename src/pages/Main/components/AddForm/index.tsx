@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
 // Material
@@ -17,6 +17,10 @@ import {
 // Models
 import { ItemModel } from 'pages/Main/models/ItemModel';
 
+// Context
+import { BuildingContext } from 'pages/Main/context/BuildingContext';
+import { DialogContext } from 'pages/Main/context/DialogContext';
+
 // Static Data
 import { dataType, dataAntique, dataUbication } from 'utils/dataSelect';
 
@@ -27,6 +31,14 @@ import { numberRegex } from 'utils/text';
 import { useStyles } from './styles';
 
 const AddForm: React.FC = () => {
+  const {
+    methods: { addBuilding },
+  } = useContext(BuildingContext);
+
+  const {
+    mutations: { toggleDialog },
+  } = useContext(DialogContext);
+
   const classes = useStyles();
   const [isHouse, setIsHouse] = useState(true);
   const [isAntique, setIsAntique] = useState(true);
@@ -39,9 +51,8 @@ const AddForm: React.FC = () => {
   });
 
   const handleTypeBuilding = (event: React.ChangeEvent<{ value: unknown }>) => {
-    let typeValue: string = event.target.value as string;
-    typeValue = typeValue.substring(2);
-    if (typeValue === 'Apartamento') {
+    const typeValue = Number(event.target.value as string);
+    if (typeValue === 1) {
       setIsHouse(false);
     } else {
       setIsHouse(true);
@@ -49,8 +60,8 @@ const AddForm: React.FC = () => {
   };
 
   const handleAntique = (event: React.ChangeEvent<{ value: unknown }>) => {
-    const antiqueValue = Number((event.target.value as string).substr(0, 1));
-    if (antiqueValue > 1) {
+    const antiqueValue: string[] = (event.target.value as string).split('_');
+    if (Number(antiqueValue[0]) > 1) {
       setIsAntique(false);
       setPricePolicy(priceDiscount * 0.05);
     } else {
@@ -70,7 +81,8 @@ const AddForm: React.FC = () => {
   };
 
   const onSubmit = (value: ItemModel) => {
-    console.log(value);
+    addBuilding(value);
+    toggleDialog(false);
   };
 
   return (
@@ -89,7 +101,7 @@ const AddForm: React.FC = () => {
                 render={({ onChange, value, name }) => (
                   <Select
                     labelId="labelBuildType"
-                    id="BuildType"
+                    id="type"
                     value={value}
                     onChange={(e) => {
                       onChange(e);
@@ -98,7 +110,7 @@ const AddForm: React.FC = () => {
                     name={name}
                   >
                     {dataType.map((item) => (
-                      <MenuItem key={item.id} value={`${item.id}_${item.name}`}>
+                      <MenuItem key={item.id} value={`${item.id}`}>
                         {item.name}
                       </MenuItem>
                     ))}
@@ -106,14 +118,14 @@ const AddForm: React.FC = () => {
                 )}
                 control={control}
                 onChange={() => console.log('hellow')}
-                name="BuildType"
+                name="type"
                 rules={{ required: true }}
                 defaultValue=""
-                errors={errors.selectBuildType}
+                errors={errors.type}
               />
             </FormControl>
-            <FormHelperText error={errors.BuildType}>
-              {errors.BuildType ? 'Selecciona un tipo de propiedad' : ''}
+            <FormHelperText error={errors.type}>
+              {errors.type ? 'Selecciona un tipo de propiedad' : ''}
             </FormHelperText>
           </Grid>
           <Grid item xs={6}>
@@ -174,7 +186,7 @@ const AddForm: React.FC = () => {
                 render={({ onChange, value, name }) => (
                   <Select
                     labelId="labelAntique"
-                    id="AntiqueType"
+                    id="antique"
                     value={value}
                     onChange={(e) => {
                       onChange(e);
@@ -194,16 +206,14 @@ const AddForm: React.FC = () => {
                 )}
                 control={control}
                 onChange={() => console.log('hellow')}
-                name="AntiqueType"
+                name="antique"
                 rules={{ required: true }}
                 defaultValue=""
-                errors={errors.AntiqueType}
+                errors={errors.antique}
               />
             </FormControl>
-            <FormHelperText error={errors.AntiqueType}>
-              {errors.AntiqueType
-                ? 'Selecciona la antigüedad de la propiedad'
-                : ''}
+            <FormHelperText error={errors.antique}>
+              {errors.antique ? 'Selecciona la antigüedad de la propiedad' : ''}
             </FormHelperText>
           </Grid>
           <Grid item xs={6}>
@@ -246,7 +256,7 @@ const AddForm: React.FC = () => {
                 render={({ onChange, value, name }) => (
                   <Select
                     labelId="labelUbication"
-                    id="UbicationType"
+                    id="ubication"
                     value={value}
                     onChange={(e) => {
                       onChange(e);
@@ -266,14 +276,14 @@ const AddForm: React.FC = () => {
                 )}
                 control={control}
                 onChange={() => console.log('hellow')}
-                name="UbicationType"
+                name="ubication"
                 rules={{ required: true }}
                 defaultValue=""
                 errors={errors.UbicationType}
               />
             </FormControl>
-            <FormHelperText error={errors.UbicationType}>
-              {errors.UbicationType ? 'Selecciona la ubicación' : ''}
+            <FormHelperText error={errors.ubication}>
+              {errors.ubication ? 'Selecciona la ubicación' : ''}
             </FormHelperText>
           </Grid>
           <Grid item xs={6}>

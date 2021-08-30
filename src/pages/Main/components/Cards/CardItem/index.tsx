@@ -1,5 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import currencyFormatter from 'currency-formatter';
+
+// Models
+import { ItemModel } from 'pages/Main/models/ItemModel';
 
 // Context
 import { DialogContext } from 'pages/Main/context/DialogContext';
@@ -14,32 +17,26 @@ import BathtubIcon from '@material-ui/icons/Bathtub';
 import { BuildImage } from 'pages/Main/components/BuildingImage';
 import { useStyles } from './styles';
 
-export interface CardItemProps {
-  id: number;
-  typeName: string;
-  typeId: number;
-  totalArea: number;
-  ubicationName: string;
-  ubicationId: number;
-  rooms: number;
-  bathrooms: number;
-  price: number;
-  priceDiscount: number;
-  imgCover: string;
-}
-
-const CardItem: React.FC<CardItemProps> = ({
+const CardItem: React.FC<ItemModel> = ({
   id,
-  typeName,
-  typeId,
+  type,
   totalArea,
-  ubicationName,
-  ubicationId,
+  builtArea,
+  antique,
+  levelId,
+  ubication,
+  address,
   rooms,
+  office,
   bathrooms,
+  garages,
+  floors,
   price,
   priceDiscount,
+  priceAdmon,
+  pricePolicy,
   imgCover,
+  descripcion,
 }) => {
   const {
     mutations: { toggleDialog },
@@ -48,6 +45,12 @@ const CardItem: React.FC<CardItemProps> = ({
   const handleClickOpen = () => {
     toggleDialog(true);
   };
+
+  const [ubicationItem, setUbicationItem] = useState(['']);
+
+  useEffect(() => {
+    setUbicationItem(ubication.split('_'));
+  }, [ubication]);
 
   const classes = useStyles();
   return (
@@ -58,9 +61,9 @@ const CardItem: React.FC<CardItemProps> = ({
         </Grid>
         <Grid item className={classes.infoContainer}>
           <Typography variant="h6">
-            {typeName} - {id}
+            {type === 1 ? 'Apartamento' : 'Casa'} - {id}
           </Typography>
-          <Typography variant="body1">Sector: {ubicationName}</Typography>
+          <Typography variant="body1">Sector {ubicationItem[2]}</Typography>
         </Grid>
         <Grid container justifyContent="space-around">
           <Grid item xs={3} className={classes.itemDetail}>

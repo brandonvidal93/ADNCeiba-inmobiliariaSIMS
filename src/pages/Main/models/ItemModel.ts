@@ -1,25 +1,21 @@
 export interface ItemModel {
   id: number;
-  typeName: string;
-  typeId: number;
+  type: number;
   totalArea: number;
   builtArea: number;
-  antiqueName: string;
-  antiqueId: number;
+  antique: string;
   levelId: number;
-  ubicationName: string;
-  ubicationId: number;
+  ubication: string;
   address: string;
   rooms: number;
-  office: number;
+  office?: number;
   bathrooms: number;
-  garages: number;
+  garages?: number;
   floors: number;
-  discountUbication: number;
   price: number;
   priceDiscount: number;
-  priceAdmon: number;
-  pricePolicy: number;
+  priceAdmon?: number;
+  pricePolicy?: number;
   imgCover: string;
-  descripcion: string;
+  descripcion?: string;
 }

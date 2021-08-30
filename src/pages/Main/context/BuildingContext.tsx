@@ -17,8 +17,36 @@ export const useStateContainer = (initialState: BuildingState = {}) => {
       .then((buildings) => setAllBuildings(buildings));
   }, []);
 
+  // addBuilding from service
+  const addBuilding = (building: ItemModel) => {
+    buildingService
+      .addBuilding(building)
+      .then((buildingAdd) => setAllBuildings([...allBuildings, buildingAdd]));
+  };
+
+  // updateBuilding from service
+  const updateBuilding = (building: ItemModel) => {
+    buildingService.editBuilding(building).then((buildingEdit) => {
+      const index = allBuildings.findIndex((b) => b.id === buildingEdit.id);
+      const newBuildings = [...allBuildings];
+      newBuildings[index] = buildingEdit;
+      setAllBuildings(newBuildings);
+    });
+  };
+
+  // deleteBuilding from service
+  const deleteBuilding = (buildingId: number) => {
+    buildingService.deleteBuilding(buildingId).then((buildingDelete) => {
+      const index = allBuildings.findIndex((b) => b.id === buildingDelete.id);
+      const newBuildings = [...allBuildings];
+      newBuildings.splice(index, 1);
+      setAllBuildings(newBuildings);
+    });
+  };
+
   return {
     data: { allBuildings },
+    methods: { addBuilding, updateBuilding, deleteBuilding },
   };
 };
 
