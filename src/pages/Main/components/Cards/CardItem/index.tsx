@@ -62,7 +62,7 @@ const CardItem: React.FC<CardItemProps> = ({
           </Typography>
           <Typography variant="body1">Sector: {ubicationName}</Typography>
         </Grid>
-        <Grid container justify="space-around">
+        <Grid container justifyContent="space-around">
           <Grid item xs={3} className={classes.itemDetail}>
             <SquareFootIcon color="primary" />
             <Typography variant="body1">{totalArea}</Typography>

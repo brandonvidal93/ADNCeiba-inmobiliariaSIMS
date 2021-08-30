@@ -17,8 +17,6 @@ export const useStateContainer = (initialState: BuildingState = {}) => {
       .then((buildings) => setAllBuildings(buildings));
   }, []);
 
-  console.log(allBuildings);
-
   return {
     data: { allBuildings },
   };

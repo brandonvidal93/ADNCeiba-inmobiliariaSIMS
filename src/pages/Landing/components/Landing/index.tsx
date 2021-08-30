@@ -22,7 +22,7 @@ export const Landing: React.FC<LandingProps> = ({ onContinue }) => {
   return (
     <>
       <Grid container className={classes.container}>
-        <Grid justify="center" container item xs={10} md={6}>
+        <Grid justifyContent="center" container item xs={10} md={6}>
           <Grid item>
             <div className={classes.containerImg}>
               <img className={classes.img} src={Logo} alt="Logo" />

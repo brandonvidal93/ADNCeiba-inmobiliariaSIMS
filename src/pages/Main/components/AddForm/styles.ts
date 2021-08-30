@@ -15,5 +15,13 @@ export const useStyles = makeStyles((theme: Theme) =>
       marginTop: theme.spacing(2),
       marginBottom: theme.spacing(3),
     },
+    textField: {
+      width: '100%',
+      minWidth: 200,
+    },
+    formControl: {
+      minWidth: 200,
+      width: '100%',
+    },
   }),
 );
