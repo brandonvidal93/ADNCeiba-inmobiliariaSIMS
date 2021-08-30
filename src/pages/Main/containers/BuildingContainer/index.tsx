@@ -1,16 +1,35 @@
-import React from 'react';
-import { Typography } from '@material-ui/core';
+import React, { useContext } from 'react';
+import { Grid, Typography } from '@material-ui/core';
+
+// Context
+import { BuildingContext } from 'pages/Main/context/BuildingContext';
+
+// Models
+import { ItemModel } from 'pages/Main/models/ItemModel';
 
 // Components
 import BuildingCard from 'pages/Main/components/Cards/BuildingCard';
 
+// Styles
+import { useStyles } from './styles';
+
 const BuildingContainer: React.FC = () => {
+  const {
+    data: { allBuildings },
+  } = useContext(BuildingContext);
+  const classes = useStyles();
+
   return (
     <>
       <Typography variant="h3" align="center">
         Propiedades
       </Typography>
-      <BuildingCard />
+      <Grid container spacing={3} className={classes.itemContainer}>
+        {allBuildings &&
+          allBuildings.map((building: ItemModel) => (
+            <BuildingCard key={building.id} item={building} />
+          ))}
+      </Grid>
     </>
   );
 };
