@@ -35,15 +35,17 @@ const CardItem: React.FC<ItemModel> = ({
 }) => {
   const [ubicationItem, setUbicationItem] = useState(['']);
   const apartmentId = 1;
+  const discountUbication = 0;
+  const nameUbication = 2;
 
   useEffect(() => {
     setUbicationItem(ubication.split('_'));
   }, [ubication]);
 
-  const nameSector = ubicationItem[2];
+  const nameSector = ubicationItem[nameUbication];
 
   const priceDiscount: number =
-    Number(price) - Number(price) * Number(ubicationItem[0]);
+    Number(price) - Number(price) * Number(ubicationItem[discountUbication]);
 
   const classes = useStyles();
   return (
