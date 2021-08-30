@@ -35,11 +35,12 @@ const CardItem: React.FC<ItemModel> = ({
 }) => {
   const [ubicationItem, setUbicationItem] = useState(['']);
   const apartmentId = 1;
-  const typeId = Number(type);
 
   useEffect(() => {
     setUbicationItem(ubication.split('_'));
   }, [ubication]);
+
+  const nameSector = ubicationItem[2];
 
   const priceDiscount: number =
     Number(price) - Number(price) * Number(ubicationItem[0]);
@@ -53,9 +54,9 @@ const CardItem: React.FC<ItemModel> = ({
         </Grid>
         <Grid item className={classes.infoContainer}>
           <Typography variant="h6">
-            {typeId === apartmentId ? 'Apartamento' : 'Casa'} - {id}
+            {Number(type) === apartmentId ? 'Apartamento' : 'Casa'} - {id}
           </Typography>
-          <Typography variant="body1">Sector {ubicationItem[2]}</Typography>
+          <Typography variant="body1">Sector {nameSector}</Typography>
         </Grid>
         <Grid container justifyContent="space-around">
           <Grid item xs={3} className={classes.itemDetail}>
