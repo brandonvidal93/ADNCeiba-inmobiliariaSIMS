@@ -37,6 +37,25 @@
       "imgCover": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
       "descripcion": "",
       "id": 2
+    },
+    {
+      "type": "2",
+      "totalArea": "200",
+      "builtArea": "85",
+      "antique": "5_21 a 25 años",
+      "levelId": "3",
+      "ubication": "0.1_6_6 - 12 de Octubre",
+      "address": "Carrera 51B #96-102 ",
+      "rooms": "4",
+      "bathrooms": "1",
+      "office": "0",
+      "garages": "0",
+      "floors": "1",
+      "price": "185000000",
+      "priceAdmon": "",
+      "imgCover": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+      "descripcion": "",
+      "id": 3
     }
   ]
 }
