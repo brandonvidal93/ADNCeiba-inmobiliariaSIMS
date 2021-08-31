@@ -4,11 +4,15 @@ import { ItemModel } from '../models/ItemModel';
 
 export interface BuildingState {
   allBuildings?: ItemModel[];
+  building?: ItemModel;
 }
 
 export const useStateContainer = (initialState: BuildingState = {}) => {
   const [allBuildings, setAllBuildings] = useState(
     initialState.allBuildings || [],
+  );
+  const [building, setBuilding] = useState(
+    initialState.building || ({} as ItemModel),
   );
 
   useEffect(() => {
@@ -18,15 +22,15 @@ export const useStateContainer = (initialState: BuildingState = {}) => {
   }, [allBuildings]);
 
   // addBuilding from service
-  const addBuilding = (building: ItemModel) => {
+  const addBuilding = (_building: ItemModel) => {
     buildingService
-      .addBuilding(building)
+      .addBuilding(_building)
       .then((buildingAdd) => setAllBuildings([...allBuildings, buildingAdd]));
   };
 
   // updateBuilding from service
-  const updateBuilding = (building: ItemModel) => {
-    buildingService.editBuilding(building).then((buildingEdit) => {
+  const updateBuilding = (_building: ItemModel) => {
+    buildingService.editBuilding(_building).then((buildingEdit) => {
       const index = allBuildings.findIndex((b) => b.id === buildingEdit.id);
       const newBuildings = [...allBuildings];
       newBuildings[index] = buildingEdit;
@@ -44,9 +48,13 @@ export const useStateContainer = (initialState: BuildingState = {}) => {
     });
   };
 
+  const buildingSet = (_building: ItemModel) => {
+    setBuilding(_building);
+  };
+
   return {
-    data: { allBuildings },
-    methods: { addBuilding, updateBuilding, deleteBuilding },
+    data: { allBuildings, building },
+    methods: { addBuilding, updateBuilding, deleteBuilding, buildingSet },
   };
 };
 

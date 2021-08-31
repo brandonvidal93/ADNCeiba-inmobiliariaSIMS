@@ -20,6 +20,10 @@
       "descripcion": ""
     },
     {
+      "id": 5,
+      "type": "2",
+      "totalArea": "180",
+      "builtArea": "80",
       "antique": "3_11 a 15 años",
       "levelId": "3",
       "ubication": "0.25_14_14 - El Poblado",
@@ -29,14 +33,10 @@
       "office": "1",
       "garages": "1",
       "floors": "2",
-      "price": "450000000",
+      "price": "395000000",
       "priceAdmon": "",
       "imgCover": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-      "descripcion": "Acogedora con una amplia sala",
-      "id": 5,
-      "type": "2",
-      "totalArea": "180",
-      "builtArea": "80"
+      "descripcion": "Acogedora con una amplia sala"
     },
     {
       "type": "1",
