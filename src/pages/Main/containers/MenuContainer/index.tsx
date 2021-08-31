@@ -32,11 +32,7 @@ const MenuContainer: React.FC = () => {
       <Fab color="primary" aria-label="add" className={classes.fab}>
         <AddIcon onClick={handleClickOpen} />
       </Fab>
-      <DialogComponent
-        title="Registrar Propiedad"
-        isOpen={isOpen}
-        toggleDialog={toggleDialog}
-      >
+      <DialogComponent isOpen={isOpen} toggleDialog={toggleDialog}>
         <AddForm />
       </DialogComponent>
     </>

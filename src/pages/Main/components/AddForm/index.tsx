@@ -32,11 +32,13 @@ import { useStyles } from './styles';
 
 const AddForm: React.FC = () => {
   const {
-    methods: { addBuilding },
+    data: { building },
+    methods: { addBuilding, updateBuilding },
   } = useContext(BuildingContext);
 
   const {
-    mutations: { toggleDialog },
+    data: { isEditMode },
+    mutations: { toggleDialog, toggleEditMode },
   } = useContext(DialogContext);
 
   const classes = useStyles();
@@ -56,8 +58,13 @@ const AddForm: React.FC = () => {
   };
 
   const onSubmit = (value: ItemModel) => {
-    addBuilding(value);
+    if (isEditMode) {
+      updateBuilding(value);
+    } else {
+      addBuilding(value);
+    }
     toggleDialog(false);
+    toggleEditMode(false);
   };
 
   return (
@@ -67,9 +74,29 @@ const AddForm: React.FC = () => {
       className={classes.form}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Container maxWidth="md" disableGutters>
+      <Container maxWidth="md">
         <Grid container spacing={2} justifyContent="space-between">
-          <Grid item xs={5}>
+          {isEditMode && (
+            <Grid item xs={12} md={12}>
+              <Controller
+                as={
+                  <TextField
+                    label="ID Propiedad"
+                    disabled
+                    className={classes.textField}
+                    type="number"
+                    inputProps={{ readOnly: true }}
+                  />
+                }
+                control={control}
+                name="id"
+                id="id"
+                rules={{ required: false }}
+                defaultValue={building.id}
+              />
+            </Grid>
+          )}
+          <Grid item xs={12} md={5}>
             <FormControl required className={classes.formControl}>
               <InputLabel id="labelBuildType">Tipo de propiedad</InputLabel>
               <Controller
@@ -94,7 +121,7 @@ const AddForm: React.FC = () => {
                 control={control}
                 name="type"
                 rules={{ required: true }}
-                defaultValue=""
+                defaultValue={isEditMode ? building.type : ''}
                 errors={errors.type}
               />
             </FormControl>
@@ -102,9 +129,9 @@ const AddForm: React.FC = () => {
               {errors.type ? 'Selecciona un tipo de propiedad' : ''}
             </FormHelperText>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Grid container justifyContent="space-between">
-              <Grid item xs={5}>
+              <Grid item xs={12} md={5}>
                 <Controller
                   as={
                     <TextField
@@ -117,14 +144,14 @@ const AddForm: React.FC = () => {
                   name="totalArea"
                   id="totalArea"
                   rules={{ required: true, pattern: numberRegex }}
-                  defaultValue=""
+                  defaultValue={isEditMode ? building.totalArea : ''}
                   errors={errors.totalArea}
                 />
                 <FormHelperText error={errors.totalArea}>
                   {errors.totalArea ? 'Sólo números' : ''}
                 </FormHelperText>
               </Grid>
-              <Grid item xs={5}>
+              <Grid item xs={12} md={5}>
                 <Controller
                   as={
                     <TextField
@@ -137,7 +164,7 @@ const AddForm: React.FC = () => {
                   name="builtArea"
                   id="builtArea"
                   rules={{ required: true, pattern: numberRegex }}
-                  defaultValue=""
+                  defaultValue={isEditMode ? building.builtArea : ''}
                   errors={errors.builtArea}
                 />
                 <FormHelperText error={errors.builtArea}>
@@ -153,7 +180,7 @@ const AddForm: React.FC = () => {
           justifyContent="space-between"
           className={classes.gridContainer}
         >
-          <Grid item xs={5}>
+          <Grid item xs={12} md={5}>
             <FormControl required className={classes.formControl}>
               <InputLabel id="labelAntique">Antigüedad</InputLabel>
               <Controller
@@ -180,7 +207,7 @@ const AddForm: React.FC = () => {
                 control={control}
                 name="antique"
                 rules={{ required: true }}
-                defaultValue=""
+                defaultValue={isEditMode ? building.antique : ''}
                 errors={errors.antique}
               />
             </FormControl>
@@ -188,9 +215,9 @@ const AddForm: React.FC = () => {
               {errors.antique ? 'Selecciona la antigüedad de la propiedad' : ''}
             </FormHelperText>
           </Grid>
-          <Grid item xs={6}>
-            <Grid container>
-              <Grid item xs={5}>
+          <Grid item xs={12} md={6}>
+            <Grid container justifyContent="space-between">
+              <Grid item xs={12} md={5}>
                 <Controller
                   as={
                     <TextField
@@ -205,7 +232,7 @@ const AddForm: React.FC = () => {
                   name="levelId"
                   id="levelId"
                   rules={{ required: true, pattern: numberRegex }}
-                  defaultValue="1"
+                  defaultValue={isEditMode ? building.levelId : '1'}
                   errors={errors.levelId}
                 />
                 <FormHelperText error={errors.levelId}>
@@ -221,7 +248,7 @@ const AddForm: React.FC = () => {
           justifyContent="space-between"
           className={classes.gridContainer}
         >
-          <Grid item xs={5}>
+          <Grid item xs={12} md={5}>
             <FormControl required className={classes.formControl}>
               <InputLabel id="labelUbication">Sector</InputLabel>
               <Controller
@@ -248,7 +275,7 @@ const AddForm: React.FC = () => {
                 control={control}
                 name="ubication"
                 rules={{ required: true }}
-                defaultValue=""
+                defaultValue={isEditMode ? building.ubication : ''}
                 errors={errors.UbicationType}
               />
             </FormControl>
@@ -256,7 +283,7 @@ const AddForm: React.FC = () => {
               {errors.ubication ? 'Selecciona la ubicación' : ''}
             </FormHelperText>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Controller
               as={
                 <TextField
@@ -269,7 +296,7 @@ const AddForm: React.FC = () => {
               name="address"
               id="address"
               rules={{ required: true }}
-              defaultValue=""
+              defaultValue={isEditMode ? building.address : ''}
               errors={errors.address}
             />
             <FormHelperText error={errors.address}>
@@ -298,7 +325,7 @@ const AddForm: React.FC = () => {
               name="rooms"
               id="rooms"
               rules={{ required: true, pattern: numberRegex }}
-              defaultValue="1"
+              defaultValue={isEditMode ? building.rooms : '1'}
               errors={errors.rooms}
             />
             <FormHelperText error={errors.rooms}>
@@ -320,7 +347,7 @@ const AddForm: React.FC = () => {
               name="bathrooms"
               id="bathrooms"
               rules={{ required: true, pattern: numberRegex }}
-              defaultValue="1"
+              defaultValue={isEditMode ? building.bathrooms : '1'}
               errors={errors.bathrooms}
             />
             <FormHelperText error={errors.bathrooms}>
@@ -341,7 +368,7 @@ const AddForm: React.FC = () => {
               name="office"
               id="office"
               rules={{ required: false, pattern: numberRegex }}
-              defaultValue="0"
+              defaultValue={isEditMode ? building.office : '0'}
               errors={errors.office}
             />
             <FormHelperText error={errors.office}>
@@ -362,7 +389,7 @@ const AddForm: React.FC = () => {
               name="garages"
               id="garages"
               rules={{ required: false, pattern: numberRegex }}
-              defaultValue="0"
+              defaultValue={isEditMode ? building.garages : '0'}
               errors={errors.garages}
             />
             <FormHelperText error={errors.garages}>
@@ -384,7 +411,7 @@ const AddForm: React.FC = () => {
               name="floors"
               id="floors"
               rules={{ required: true, pattern: numberRegex }}
-              defaultValue="1"
+              defaultValue={isEditMode ? building.floors : '1'}
               erros={errors.floors}
             />
             <FormHelperText error={errors.floors}>
@@ -398,7 +425,7 @@ const AddForm: React.FC = () => {
           justifyContent="space-between"
           className={classes.gridContainer}
         >
-          <Grid item xs={3}>
+          <Grid item xs={12} md={3}>
             <Controller
               render={({ onChange, value }) => (
                 <TextField
@@ -415,14 +442,14 @@ const AddForm: React.FC = () => {
               name="price"
               id="price"
               rules={{ required: true, pattern: numberRegex }}
-              defaultValue=""
+              defaultValue={isEditMode ? building.price : ''}
               errors={errors.price}
             />
             <FormHelperText error={errors.price}>
               {errors.price ? 'Solo números' : ''}
             </FormHelperText>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={12} md={3}>
             <Controller
               as={
                 <TextField
@@ -435,7 +462,7 @@ const AddForm: React.FC = () => {
               name="priceAdmon"
               id="priceAdmon"
               rules={{ required: false, pattern: numberRegex }}
-              defaultValue=""
+              defaultValue={isEditMode ? building.priceAdmon : ''}
               erros={errors.priceAdmon}
             />
             <FormHelperText error={errors.priceAdmon}>
@@ -443,7 +470,7 @@ const AddForm: React.FC = () => {
             </FormHelperText>
           </Grid>
 
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <Controller
               as={
                 <TextField
@@ -456,7 +483,7 @@ const AddForm: React.FC = () => {
               name="imgCover"
               id="imgCover"
               rules={{ required: true }}
-              defaultValue=""
+              defaultValue={isEditMode ? building.imgCover : ''}
               errors={errors.imgCover}
             />
             <FormHelperText error={errors.imgCover}>
@@ -485,7 +512,7 @@ const AddForm: React.FC = () => {
               name="descripcion"
               id="descripcion"
               rules={{ required: false }}
-              defaultValue=""
+              defaultValue={isEditMode ? building.descripcion : ''}
             />
           </Grid>
         </Grid>

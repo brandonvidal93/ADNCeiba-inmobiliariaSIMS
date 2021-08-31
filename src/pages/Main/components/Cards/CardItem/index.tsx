@@ -4,6 +4,7 @@ import currencyFormatter from 'currency-formatter';
 import { ItemModel } from 'pages/Main/models/ItemModel';
 // Context
 import { BuildingContext } from 'pages/Main/context/BuildingContext';
+import { DialogContext } from 'pages/Main/context/DialogContext';
 // Material
 import { Grid, Typography, IconButton } from '@material-ui/core';
 import SquareFootIcon from '@material-ui/icons/SquareFoot';
@@ -13,6 +14,7 @@ import BorderAllIcon from '@material-ui/icons/BorderAll';
 import AirlineSeatReclineNormalIcon from '@material-ui/icons/AirlineSeatReclineNormal';
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
 import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 // Components
 import { BuildImage } from 'pages/Main/components/BuildingImage';
 import { useStyles } from './styles';
@@ -37,8 +39,11 @@ const CardItem: React.FC<ItemModel> = ({
   descripcion,
 }) => {
   const {
-    methods: { deleteBuilding },
+    methods: { deleteBuilding, buildingSet },
   } = useContext(BuildingContext);
+  const {
+    mutations: { toggleDialog, toggleEditMode },
+  } = useContext(DialogContext);
   const [ubicationItem, setUbicationItem] = useState(['']);
   const [antiqueItem, setAntiqueItem] = useState(['']);
   const indicator0 = 0;
@@ -58,6 +63,30 @@ const CardItem: React.FC<ItemModel> = ({
     Number(price) - Number(price) * Number(ubicationItem[indicator0]);
   const pricePolicy: number = priceDiscount * indicator3;
   const classes = useStyles();
+
+  const handleEdit = () => {
+    buildingSet({
+      id,
+      type,
+      totalArea,
+      builtArea,
+      antique,
+      levelId,
+      ubication,
+      address,
+      rooms,
+      office,
+      bathrooms,
+      garages,
+      floors,
+      price,
+      priceAdmon,
+      imgCover,
+      descripcion,
+    });
+    toggleDialog(true);
+    toggleEditMode(true);
+  };
 
   const handleDelete = () => {
     deleteBuilding(id);
@@ -154,8 +183,11 @@ const CardItem: React.FC<ItemModel> = ({
           container
           item
           className={classes.separator}
-          justifyContent="center"
+          justifyContent="space-evenly"
         >
+          <IconButton aria-label="edit" onClick={handleEdit}>
+            <EditIcon />
+          </IconButton>
           <IconButton aria-label="delete" onClick={handleDelete}>
             <DeleteIcon />
           </IconButton>
