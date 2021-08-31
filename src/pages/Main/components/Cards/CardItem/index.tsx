@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import currencyFormatter from 'currency-formatter';
-
 // Models
 import { ItemModel } from 'pages/Main/models/ItemModel';
-
+// Context
+import { BuildingContext } from 'pages/Main/context/BuildingContext';
 // Material
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, IconButton } from '@material-ui/core';
 import SquareFootIcon from '@material-ui/icons/SquareFoot';
 import HotelIcon from '@material-ui/icons/Hotel';
 import BathtubIcon from '@material-ui/icons/Bathtub';
 import BorderAllIcon from '@material-ui/icons/BorderAll';
 import AirlineSeatReclineNormalIcon from '@material-ui/icons/AirlineSeatReclineNormal';
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
-
+import DeleteIcon from '@material-ui/icons/Delete';
 // Components
 import { BuildImage } from 'pages/Main/components/BuildingImage';
 import { useStyles } from './styles';
@@ -36,29 +36,33 @@ const CardItem: React.FC<ItemModel> = ({
   imgCover,
   descripcion,
 }) => {
+  const {
+    methods: { deleteBuilding },
+  } = useContext(BuildingContext);
   const [ubicationItem, setUbicationItem] = useState(['']);
   const [antiqueItem, setAntiqueItem] = useState(['']);
-
   const indicator0 = 0;
   const indicator1 = 1;
   const indicator2 = 2;
+  const indicator3 = 0.05;
 
   useEffect(() => {
     setUbicationItem(ubication.split('_'));
   }, [ubication]);
-
   useEffect(() => {
     setAntiqueItem(antique.split('_'));
   }, [antique]);
 
   const nameSector = ubicationItem[indicator2];
-
   const priceDiscount: number =
     Number(price) - Number(price) * Number(ubicationItem[indicator0]);
-
-  const pricePolicy: number = priceDiscount * 0.05;
-
+  const pricePolicy: number = priceDiscount * indicator3;
   const classes = useStyles();
+
+  const handleDelete = () => {
+    deleteBuilding(id);
+  };
+
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Grid container direction="column" className={classes.paper}>
@@ -121,9 +125,12 @@ const CardItem: React.FC<ItemModel> = ({
         <Grid item className={classes.infoContainer}>
           <Typography variant="body1">
             <b>Seguro vivienda: </b>
-            {currencyFormatter.format(pricePolicy, {
-              code: 'USD',
-            })}
+            {currencyFormatter.format(
+              Number(antiqueItem[0]) > indicator1 ? pricePolicy : 0,
+              {
+                code: 'USD',
+              },
+            )}
           </Typography>
           <Typography variant="body1">
             <b>Administración: </b>
@@ -132,7 +139,7 @@ const CardItem: React.FC<ItemModel> = ({
             })}
           </Typography>
         </Grid>
-        <Grid item className={classes.separator}>
+        <Grid item>
           <Typography variant="subtitle2" align="center">
             Antes: <del>{currencyFormatter.format(price, { code: 'USD' })}</del>
           </Typography>
@@ -142,6 +149,16 @@ const CardItem: React.FC<ItemModel> = ({
               code: 'USD',
             })}
           </Typography>
+        </Grid>
+        <Grid
+          container
+          item
+          className={classes.separator}
+          justifyContent="center"
+        >
+          <IconButton aria-label="delete" onClick={handleDelete}>
+            <DeleteIcon />
+          </IconButton>
         </Grid>
       </Grid>
     </Grid>

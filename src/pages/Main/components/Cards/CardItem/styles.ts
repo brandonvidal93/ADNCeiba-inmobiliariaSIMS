@@ -7,14 +7,6 @@ export const useStyles = makeStyles((theme: Theme) =>
       borderRadius: 10,
       overflow: 'hidden',
       transition: 'all .3s ease',
-      '&:hover': {
-        boxShadow:
-          '0 10px 10px 0 rgb(0 0 0 / 20%), 0 3px 7px 0 rgb(0 0 0 / 25%)',
-        '& $imgContainer': {
-          filter: 'brightness(0.8)',
-          cursor: 'pointer',
-        },
-      },
     },
     imgContainer: {
       display: 'flex',
