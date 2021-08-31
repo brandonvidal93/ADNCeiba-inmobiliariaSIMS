@@ -29,7 +29,12 @@ const MenuContainer: React.FC = () => {
 
   return (
     <>
-      <Fab color="primary" aria-label="add" className={classes.fab}>
+      <Fab
+        color="primary"
+        aria-label="add"
+        className={classes.fab}
+        id="btnAdd-1"
+      >
         <AddIcon onClick={handleClickOpen} />
       </Fab>
       <DialogComponent isOpen={isOpen} toggleDialog={toggleDialog}>
