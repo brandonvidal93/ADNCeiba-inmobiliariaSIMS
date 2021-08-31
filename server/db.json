@@ -1,12 +1,12 @@
 {
   "buildings": [
     {
+      "id": 4,
       "type": "1",
       "totalArea": "130",
       "builtArea": "85",
       "antique": "6_26 a 30 años",
       "levelId": "5",
-      "id": 4,
       "ubication": "0.2_12_12 - La América",
       "address": "Carrera 51B #105-96B",
       "rooms": "3",
@@ -39,12 +39,12 @@
       "builtArea": "80"
     },
     {
+      "id": 6,
       "type": "1",
       "totalArea": "60",
       "builtArea": "40",
       "antique": "1_0 a 5 años",
       "levelId": "3",
-      "id": 6,
       "ubication": "0.1_5_5 - Castilla",
       "address": "Carrera 80 #34-56",
       "rooms": "2",
