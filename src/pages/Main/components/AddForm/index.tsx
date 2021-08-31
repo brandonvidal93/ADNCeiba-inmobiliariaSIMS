@@ -436,6 +436,7 @@ const AddForm: React.FC = () => {
                     onChange(e);
                   }}
                   value={value}
+                  id="price"
                 />
               )}
               control={control}
@@ -523,6 +524,7 @@ const AddForm: React.FC = () => {
               type="submit"
               variant="contained"
               color="primary"
+              id="btnSave"
             >
               GUARDAR
             </Button>

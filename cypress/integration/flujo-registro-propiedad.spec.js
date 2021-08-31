@@ -1,0 +1,47 @@
+/// <reference types="Cypress"/>
+describe('Flujo de registro de propiedad', () => {
+  it('Crear registro existoso desde el Botón flotante', () => {
+    cy.visit('http://localhost:3000');
+    cy.wait(3000);
+    cy.get('[aria-label="add"]').click();
+    cy.wait(3000);
+    cy.get('#type').click();
+    cy.wait(1000);
+    cy.get('[data-value="1"]').click();
+    cy.wait(1000);
+    cy.get('#totalArea').clear().type(55);
+    cy.wait(1000);
+    cy.get('#builtArea').clear().type(55);
+    cy.get('#antique').click();
+    cy.wait(1000);
+    cy.get('[data-value="1_0 a 5 años"]').click();
+    cy.wait(1000);
+    cy.get('#levelId').clear().type(4);
+    cy.wait(1000);
+    cy.get('#ubication').click();
+    cy.wait(1000);
+    cy.get('[data-value="0.15_9_9 - Buenos Aires"]').click();
+    cy.wait(1000);
+    cy.get('#address').clear().type('Calle falsa 123');
+    cy.wait(1000);
+    cy.get('#rooms').clear().type(2);
+    cy.wait(1000);
+    cy.get('#bathrooms').clear().type(1);
+    cy.wait(1000);
+    cy.get('#office').clear().type(1);
+    cy.wait(1000);
+    cy.get('#garages').clear().type(1);
+    cy.wait(1000);
+    cy.get('#floors').clear().type(1);
+    cy.wait(1000);
+    cy.get('#price').clear().type(150000000);
+    cy.wait(1000);
+    cy.get('#priceAdmon').clear().type(110000);
+    cy.wait(1000);
+    cy.get('#imgCover').clear().type('https://images.unsplash.com/photo-1515263487990-61b07816b324?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
+    cy.wait(1000);
+    cy.get('#descripcion').clear().type('Descripción de prueba');
+    cy.wait(1000);
+    cy.get('#btnSave').click();
+  });
+});

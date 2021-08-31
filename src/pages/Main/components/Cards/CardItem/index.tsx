@@ -185,10 +185,18 @@ const CardItem: React.FC<ItemModel> = ({
           className={classes.separator}
           justifyContent="space-evenly"
         >
-          <IconButton aria-label="edit" onClick={handleEdit}>
+          <IconButton
+            aria-label="edit"
+            onClick={handleEdit}
+            id={`btnEdit-${id}`}
+          >
             <EditIcon />
           </IconButton>
-          <IconButton aria-label="delete" onClick={handleDelete}>
+          <IconButton
+            aria-label="delete"
+            onClick={handleDelete}
+            id={`btnDelete-${id}`}
+          >
             <DeleteIcon />
           </IconButton>
         </Grid>

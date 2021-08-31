@@ -14,12 +14,14 @@ export const useStateContainer = (initialState: BuildingState = {}) => {
   const [building, setBuilding] = useState(
     initialState.building || ({} as ItemModel),
   );
+  const [onDeleted, setOnDeleted] = useState(false);
 
   useEffect(() => {
     buildingService
       .listBuilding()
       .then((buildings) => setAllBuildings(buildings));
-  }, []);
+    setOnDeleted(false);
+  }, [onDeleted]);
 
   // addBuilding from service
   const addBuilding = (_building: ItemModel) => {
@@ -45,6 +47,7 @@ export const useStateContainer = (initialState: BuildingState = {}) => {
       const newBuildings = [...allBuildings];
       newBuildings.splice(index, 1);
       setAllBuildings(newBuildings);
+      setOnDeleted(true);
     });
   };
 
