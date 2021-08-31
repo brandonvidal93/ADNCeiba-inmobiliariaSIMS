@@ -19,7 +19,7 @@ export const useStateContainer = (initialState: BuildingState = {}) => {
     buildingService
       .listBuilding()
       .then((buildings) => setAllBuildings(buildings));
-  }, [allBuildings]);
+  }, []);
 
   // addBuilding from service
   const addBuilding = (_building: ItemModel) => {
