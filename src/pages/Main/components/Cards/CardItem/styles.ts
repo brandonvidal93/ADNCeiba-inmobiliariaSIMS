@@ -31,6 +31,9 @@ export const useStyles = makeStyles((theme: Theme) =>
     infoContainer: {
       padding: theme.spacing(2),
     },
+    separator: {
+      marginBottom: theme.spacing(2),
+    },
     itemDetail: {
       display: 'flex',
       justifyContent: 'space-evenly',

@@ -56,6 +56,25 @@
       "imgCover": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
       "descripcion": "",
       "id": 3
+    },
+    {
+      "type": "2",
+      "totalArea": "130",
+      "builtArea": "130",
+      "antique": "3_11 a 15 años",
+      "levelId": "4",
+      "ubication": "0.2_12_12 - La América",
+      "address": "Carrera 51B #105-96B",
+      "rooms": "3",
+      "bathrooms": "3",
+      "office": "1",
+      "garages": "1",
+      "floors": "2",
+      "price": "255000000",
+      "priceAdmon": "",
+      "imgCover": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+      "descripcion": "Ubicado en un muy buen sector",
+      "id": 4
     }
   ]
 }
