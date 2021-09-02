@@ -7,11 +7,11 @@
       "builtArea": "85",
       "antique": "4_16 a 20 años",
       "levelId": "1",
-      "ubication": "0.1_1_1 - Popular",
+      "ubication": "0.1_2_2 - Santa Cruz",
       "address": "Carrera 51B #105-96B",
       "rooms": "1",
       "bathrooms": "1",
-      "office": "1",
+      "office": "3",
       "garages": "0",
       "floors": "1",
       "price": "230000000",
@@ -39,23 +39,23 @@
       "id": 2
     },
     {
-      "type": "2",
-      "totalArea": "45",
-      "builtArea": "45",
-      "antique": "2_6 a 10 años",
+      "id": 4,
+      "type": "1",
+      "totalArea": "60",
+      "builtArea": "55",
+      "antique": "1_0 a 5 años",
       "levelId": "3",
-      "ubication": "0.1_7_7 - Robledo",
-      "address": "Carrera 35C #45-90",
-      "rooms": "2",
+      "ubication": "0.15_9_9 - Buenos Aires",
+      "address": "Calle falsa 123",
+      "rooms": "3",
       "bathrooms": "1",
-      "office": "0",
-      "garages": "0",
+      "office": "1",
+      "garages": "1",
       "floors": "1",
-      "price": "110000000",
-      "priceAdmon": "",
-      "imgCover": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
-      "descripcion": "",
-      "id": 3
+      "price": "150000000",
+      "priceAdmon": "110000",
+      "imgCover": "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
+      "descripcion": "Descripción de prueba 2"
     },
     {
       "type": "1",
@@ -74,7 +74,7 @@
       "priceAdmon": "110000",
       "imgCover": "https://images.unsplash.com/photo-1515263487990-61b07816b324?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
       "descripcion": "Descripción de prueba",
-      "id": 4
+      "id": 5
     }
   ]
 }
