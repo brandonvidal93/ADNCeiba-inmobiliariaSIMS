@@ -10,7 +10,7 @@ describe('Biulding Image Test', () => {
 
   // shoudl render building image with cover is null
   it('should render building image with cover is null', () => {
-    const { container } = render(<BuildImage cover={''} />);
+    const { container } = render(<BuildImage cover="" />);
     expect(container).toMatchSnapshot();
   });
 });
